@@ -22,10 +22,14 @@ interface ChartsProps {
   monthlyNetOutlay: number;
 }
 
+// Vibrant, distinct hues that stay readable against the dark `#12141A` card background —
+// avoids near-black fills (e.g. #111111) that visually disappear on dark surfaces.
+const CHART_PALETTE = ["#60A5FA", "#34D399", "#FBBF24", "#F472B6", "#A78BFA", "#22D3EE", "#FB923C"];
+
 export function DashboardCharts({ attendanceData, monthlyNetOutlay }: ChartsProps) {
-  // 1. Structure data for Today's Attendance Distribution Breakdown (Clean Google Tones)
+  // 1. Structure data for Today's Attendance Distribution Breakdown
   const pieData = [
-    { name: "Present", value: attendanceData.present, color: "#111111" }, // Deep Matte Black
+    { name: "Present", value: attendanceData.present, color: "#34D399" }, // Emerald
     { name: "Absent", value: attendanceData.absent, color: "#EA4335" },  // Google Red
     { name: "On Leave", value: attendanceData.leave, color: "#94A3B8" }, // Minimal Gray
   ];
@@ -80,9 +84,9 @@ export function DashboardCharts({ attendanceData, monthlyNetOutlay }: ChartsProp
                   <Cell key={`cell-${index}`} fill={entry.color} stroke="none" />
                 ))}
               </Pie>
-              <Tooltip 
+              <Tooltip
                 contentStyle={{ background: "#ffffff", borderRadius: "12px", border: "1px solid #e5e7eb", boxShadow: "0 10px 25px rgba(0,0,0,0.05)" }}
-                itemStyle={{ color: "#111111", fontSize: "12px", fontWeight: "500" }}
+                itemStyle={{ color: "#1F2937", fontSize: "12px", fontWeight: "500" }}
               />
             </PieChart>
           </ResponsiveContainer>
@@ -117,31 +121,34 @@ export function DashboardCharts({ attendanceData, monthlyNetOutlay }: ChartsProp
         <div className="w-full mt-2 min-w-0" style={{ height: 224 }}>
           <ResponsiveContainer width="100%" height={224} minWidth={0}>
             <BarChart data={trendData} margin={{ top: 10, right: 5, left: -15, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="4 4" vertical={false} stroke="#f3f4f6" />
-              <XAxis 
-                dataKey="month" 
-                axisLine={false} 
-                tickLine={false} 
-                tick={{ fill: "#9CA3AF", fontSize: 12, fontWeight: "500" }} 
+              <CartesianGrid strokeDasharray="4 4" vertical={false} stroke="rgba(255,255,255,0.07)" />
+              <XAxis
+                dataKey="month"
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: "#9CA3AF", fontSize: 12, fontWeight: "500" }}
               />
-              <YAxis 
-                axisLine={false} 
-                tickLine={false} 
+              <YAxis
+                axisLine={false}
+                tickLine={false}
                 tick={{ fill: "#9CA3AF", fontSize: 11, fontWeight: "500" }}
                 tickFormatter={formatIndianCurrency}
               />
-              <Tooltip 
-                cursor={{ fill: "#f9fafb" }}
+              <Tooltip
+                cursor={{ fill: "rgba(255,255,255,0.04)" }}
                 formatter={(value) => [formatIndianCurrency(Number(value)), "Net Monthly Spend"]}
                 contentStyle={{ background: "#ffffff", borderRadius: "12px", border: "1px solid #e5e7eb", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", fontSize: "12px" }}
                 itemStyle={{ fontWeight: "600" }}
               />
-              <Bar 
-                dataKey="Outlay" 
-                fill="#111111" // Sleek Black matching Google reference button core style
-                radius={[6, 6, 0, 0]} 
+              <Bar
+                dataKey="Outlay"
+                radius={[6, 6, 0, 0]}
                 maxBarSize={36}
-              />
+              >
+                {trendData.map((entry, index) => (
+                  <Cell key={entry.month} fill={CHART_PALETTE[index % CHART_PALETTE.length]} />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>

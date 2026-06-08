@@ -27,7 +27,10 @@ interface WorkforceAnalytics {
   aiSummary: string | null;
 }
 
-const DEPARTMENT_COLORS = ["#111111", "oklch(0.55 0.2 291)", "#94A3B8", "#EA4335", "#10B981", "#F59E0B", "#8B5CF6"];
+// Vibrant, distinct hues that stay readable against the dark `#12141A` card background —
+// avoids near-black fills/strokes (e.g. #111111) that visually disappear on dark surfaces.
+const DEPARTMENT_COLORS = ["#60A5FA", "oklch(0.55 0.2 291)", "#94A3B8", "#EA4335", "#10B981", "#F59E0B", "#8B5CF6"];
+const BAR_PALETTE = ["#60A5FA", "#34D399", "#FBBF24", "#F472B6", "#A78BFA", "#22D3EE", "#FB923C"];
 
 const TONE_STYLES: Record<string, { icon: typeof ThumbsUp; classes: string }> = {
   POSITIVE: { icon: ThumbsUp, classes: "border-emerald-500/20 bg-emerald-500/10 text-emerald-400" },
@@ -173,9 +176,9 @@ export default function WorkforceAnalyticsPage() {
               <p className="text-xs text-gray-500 font-normal mb-4">New joiners per month, last {data.trendWindowMonths} months.</p>
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={data.headcountGrowth}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
-                  <XAxis dataKey="period" tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 11 }} axisLine={false} tickLine={false} allowDecimals={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.07)" vertical={false} />
+                  <XAxis dataKey="period" tick={{ fontSize: 11, fill: "#9CA3AF" }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 11, fill: "#9CA3AF" }} axisLine={false} tickLine={false} allowDecimals={false} />
                   <Tooltip contentStyle={{ background: "#fff", borderRadius: "12px", border: "1px solid #e5e7eb", boxShadow: "0 10px 25px rgba(0,0,0,0.05)" }} />
                   <Bar dataKey="newJoiners" name="New Joiners" fill="oklch(0.55 0.2 291)" radius={[6, 6, 0, 0]} />
                 </BarChart>
@@ -187,12 +190,12 @@ export default function WorkforceAnalyticsPage() {
               <p className="text-xs text-gray-500 font-normal mb-4">Company-wide presence rate and overtime hours, monthly.</p>
               <ResponsiveContainer width="100%" height={260}>
                 <LineChart data={data.attendanceTrend}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
-                  <XAxis dataKey="period" tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.07)" vertical={false} />
+                  <XAxis dataKey="period" tick={{ fontSize: 11, fill: "#9CA3AF" }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 11, fill: "#9CA3AF" }} axisLine={false} tickLine={false} />
                   <Tooltip contentStyle={{ background: "#fff", borderRadius: "12px", border: "1px solid #e5e7eb", boxShadow: "0 10px 25px rgba(0,0,0,0.05)" }} />
                   <Legend wrapperStyle={{ fontSize: "11px" }} />
-                  <Line type="monotone" dataKey="attendanceRatePercent" name="Attendance Rate (%)" stroke="#111111" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="attendanceRatePercent" name="Attendance Rate (%)" stroke="#22D3EE" strokeWidth={2} dot={false} />
                   <Line type="monotone" dataKey="totalOvertimeHours" name="Overtime Hours" stroke="oklch(0.55 0.2 291)" strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
@@ -203,14 +206,18 @@ export default function WorkforceAnalyticsPage() {
               <p className="text-xs text-gray-500 font-normal mb-4">Net salary outlay per period, last {data.trendWindowMonths} payroll cycles.</p>
               <ResponsiveContainer width="100%" height={260}>
                 <BarChart data={data.payrollTrend}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
-                  <XAxis dataKey="period" tick={{ fontSize: 11 }} axisLine={false} tickLine={false} />
-                  <YAxis tick={{ fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={formatIndianCurrency} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.07)" vertical={false} />
+                  <XAxis dataKey="period" tick={{ fontSize: 11, fill: "#9CA3AF" }} axisLine={false} tickLine={false} />
+                  <YAxis tick={{ fontSize: 11, fill: "#9CA3AF" }} axisLine={false} tickLine={false} tickFormatter={formatIndianCurrency} />
                   <Tooltip
                     formatter={(value) => formatIndianCurrency(Number(value))}
                     contentStyle={{ background: "#fff", borderRadius: "12px", border: "1px solid #e5e7eb", boxShadow: "0 10px 25px rgba(0,0,0,0.05)" }}
                   />
-                  <Bar dataKey="totalNet" name="Net Payout" fill="#111111" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="totalNet" name="Net Payout" radius={[6, 6, 0, 0]}>
+                    {data.payrollTrend.map((entry, index) => (
+                      <Cell key={entry.period} fill={BAR_PALETTE[index % BAR_PALETTE.length]} />
+                    ))}
+                  </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
