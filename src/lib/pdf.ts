@@ -1,5 +1,3 @@
-import { PDFParse } from "pdf-parse";
-
 declare global {
   // eslint-disable-next-line no-var
   var pdfjsWorker: unknown;
@@ -22,6 +20,7 @@ function ensurePdfWorker(): Promise<void> {
 
 export async function extractTextFromPdf(buffer: Buffer): Promise<string> {
   await ensurePdfWorker();
+  const { PDFParse } = await import("pdf-parse");
   const parser = new PDFParse({ data: buffer });
   try {
     const result = await parser.getText();
