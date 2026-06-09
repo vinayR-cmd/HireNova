@@ -8,7 +8,7 @@ export async function GET() {
   try {
     await connectDB();
     const cookieStore = await cookies();
-    const token = cookieStore.get("recruitiq_access")?.value;
+    const token = cookieStore.get("hirenova_access")?.value;
     const session = token ? verifyAccessToken(token) : null;
     if (!session) return Response.json({ error: "Unauthorized" }, { status: 401 });
 
@@ -23,7 +23,7 @@ export async function PUT(request: NextRequest) {
   try {
     await connectDB();
     const cookieStore = await cookies();
-    const token = cookieStore.get("recruitiq_access")?.value;
+    const token = cookieStore.get("hirenova_access")?.value;
     const session = token ? verifyAccessToken(token) : null;
 
     if (!session) {

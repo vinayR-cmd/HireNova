@@ -9,7 +9,7 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   const cookieStore = await cookies();
-  const token = cookieStore.get("recruitiq_access")?.value;
+  const token = cookieStore.get("hirenova_access")?.value;
   const payload = token ? verifyAccessToken(token) : null;
 
   if (!payload || payload.role !== "ADMIN") {

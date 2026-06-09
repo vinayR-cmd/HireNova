@@ -18,7 +18,7 @@ export default async function AdminPayslipDetailPage({
     const { id } = await params;
 
     const cookieStore = await cookies();
-    const token = cookieStore.get("recruitiq_access")?.value;
+    const token = cookieStore.get("hirenova_access")?.value;
     const session = token ? verifyAccessToken(token) : null;
 
     if (!session || session.role !== "ADMIN") redirect("/login");
@@ -175,7 +175,7 @@ export default async function AdminPayslipDetailPage({
                         <div className="flex justify-between items-start pb-5 border-b-2 border-dashed border-white/10">
                             <div>
                                 <div className="text-2xl font-bold text-white tracking-tight">
-                                    <span className="text-[oklch(0.62_0.21_291)]">▲</span> RecruitIQ Enterprise
+                                    <span className="text-[oklch(0.62_0.21_291)]">▲</span> HireNova Enterprise
                                 </div>
                                 <div className="text-[10px] text-gray-500 font-semibold uppercase tracking-widest mt-1">
                                     Human Resource Management Portal
@@ -360,12 +360,12 @@ export default async function AdminPayslipDetailPage({
                                 <div>
                                     <div className="font-mono text-[8px] text-gray-500 pb-1 pr-4">[Digitally Authenticated]</div>
                                     <div className="w-40 border-t border-white/15" />
-                                    <div className="text-gray-400 mt-1.5">RecruitIQ HR Department</div>
+                                    <div className="text-gray-400 mt-1.5">HireNova HR Department</div>
                                 </div>
                             </div>
                         </div>
                         <div className="text-center text-[8px] text-gray-500 pt-3 border-t border-white/8">
-                            This is a system-generated salary statement and does not require a physical seal. | RecruitIQ Enterprise
+                            This is a system-generated salary statement and does not require a physical seal. | HireNova Enterprise
                         </div>
                     </div>
                 </div>

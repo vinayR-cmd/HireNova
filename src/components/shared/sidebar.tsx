@@ -30,7 +30,7 @@ interface SidebarProps {
     onCollapseChange?: (collapsed: boolean) => void;
 }
 
-const COLLAPSE_KEY = "recruitiq_sidebar_collapsed";
+const COLLAPSE_KEY = "hirenova_sidebar_collapsed";
 
 export function Sidebar({ role, mobileOpen = false, onMobileClose, onCollapseChange }: SidebarProps) {
     const pathname = usePathname();
@@ -184,8 +184,8 @@ export function Sidebar({ role, mobileOpen = false, onMobileClose, onCollapseCha
                                 collapsed && "opacity-0 pointer-events-none w-0 overflow-hidden"
                             )}
                         >
-                            <Image src="/logo.png" alt="RecruitIQ" width={28} height={28} className="shrink-0" />
-                            <span className="text-base font-semibold">RecruitIQ</span>
+                            <Image src="/logo.png" alt="HireNova" width={28} height={28} className="shrink-0" />
+                            <span className="text-base font-semibold">HireNova</span>
                             <span className="text-[10px] font-medium text-gray-500 bg-white/[0.03] px-1.5 py-0.5 border border-white/10 rounded-md">v2.4</span>
                         </Link>
 
@@ -228,8 +228,8 @@ export function Sidebar({ role, mobileOpen = false, onMobileClose, onCollapseCha
                 <div className="flex h-full flex-col border-r border-white/15 bg-[#12141A] text-white">
                     <div className="flex h-16 items-center justify-between px-5 border-b border-white/8 shrink-0">
                         <Link href="/" className="flex items-center gap-2 font-semibold text-white tracking-tight">
-                            <Image src="/logo.png" alt="RecruitIQ" width={28} height={28} className="shrink-0" />
-                            <span className="text-base font-semibold">RecruitIQ</span>
+                            <Image src="/logo.png" alt="HireNova" width={28} height={28} className="shrink-0" />
+                            <span className="text-base font-semibold">HireNova</span>
                             <span className="text-[10px] font-medium text-gray-500 bg-white/[0.03] px-1.5 py-0.5 border border-white/10 rounded-md">v2.4</span>
                         </Link>
                         <button

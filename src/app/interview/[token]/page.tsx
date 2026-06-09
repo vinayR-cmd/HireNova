@@ -108,8 +108,8 @@ export default function PublicInterviewPage() {
     <div className="min-h-screen bg-[#08090C] flex items-center justify-center p-4 sm:p-6">
       <div className="w-full max-w-2xl">
         <div className="flex items-center justify-center gap-2 mb-8">
-          <Image src="/logo.png" alt="RecruitIQ AI" width={28} height={28} className="rounded-lg" />
-          <span className="font-semibold text-white tracking-tight">RecruitIQ AI</span>
+          <Image src="/logo.png" alt="HireNova AI" width={28} height={28} className="rounded-lg" />
+          <span className="font-semibold text-white tracking-tight">HireNova AI</span>
           <span className="inline-flex items-center gap-1.5 rounded-full border border-[oklch(0.62_0.21_291)]/20 bg-[oklch(0.62_0.21_291)]/5 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[oklch(0.62_0.21_291)] ml-1">
             <Sparkles className="h-3 w-3" /> Interview Agent
           </span>

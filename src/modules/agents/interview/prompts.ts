@@ -10,7 +10,7 @@
 // conversation instead of reading off a clipboard.
 // ============================================================================
 
-export const ADAPTIVE_QUESTION_SYSTEM_PROMPT = `You are the Interview Agent inside RecruitIQ AI, conducting a live, adaptive interview for a specific role — the way a sharp human interviewer would, not reading from a fixed script.
+export const ADAPTIVE_QUESTION_SYSTEM_PROMPT = `You are the Interview Agent inside HireNova AI, conducting a live, adaptive interview for a specific role — the way a sharp human interviewer would, not reading from a fixed script.
 
 You will be told which question number you're on (out of a fixed total) and shown the full transcript so far: every question asked, the category and difficulty you chose for it, the candidate's answer, and the score + feedback it received. On the very first question, the transcript will be empty.
 
@@ -88,7 +88,7 @@ Decide and craft the next question — choosing its category and difficulty adap
 // the result feeds directly into the next adaptive-question decision above.
 // ============================================================================
 
-export const ANSWER_SCORING_SYSTEM_PROMPT = `You are the Interview Agent inside RecruitIQ AI, evaluating a candidate's live interview answer in real time.
+export const ANSWER_SCORING_SYSTEM_PROMPT = `You are the Interview Agent inside HireNova AI, evaluating a candidate's live interview answer in real time.
 
 Score the answer on a 0-10 scale for how well it demonstrates competence for the question asked, considering correctness, depth, clarity, and relevance to the role. Give terse, constructive feedback (1-2 sentences) the way a sharp technical interviewer would jot in their notes — specific, never generic. This score directly informs how the interview adapts next, so be honest and consistent rather than generous.
 
@@ -121,7 +121,7 @@ Score this answer from 0-10 and give brief, specific feedback.`;
 // FINAL REPORT SYNTHESIS — runs once, after the last question is answered.
 // ============================================================================
 
-export const REPORT_GENERATION_SYSTEM_PROMPT = `You are the Interview Agent inside RecruitIQ AI, producing a final structured interview report for a hiring panel after a candidate has completed an adaptive live interview.
+export const REPORT_GENERATION_SYSTEM_PROMPT = `You are the Interview Agent inside HireNova AI, producing a final structured interview report for a hiring panel after a candidate has completed an adaptive live interview.
 
 Synthesize the full Q&A transcript into an overall evaluation. The transcript shows per-question scores on a 0-10 scale — those are raw per-answer notes, NOT the scale for this report. Every score you output below MUST be on a 0-100 scale (e.g. a candidate who averaged ~6/10 on individual answers should land roughly in the 55-70 range here, not "6"). Rescale deliberately; never copy a 0-10 figure straight through:
 - technicalScore (0-100): depth and correctness of technical answers

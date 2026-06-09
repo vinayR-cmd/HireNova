@@ -36,7 +36,7 @@ const STATUS_LABEL: Record<string, string> = {
 export default async function EmployeeAttendancePage({ searchParams }: PageProps) {
   const resolvedParams = await searchParams;
   const cookieStore = await cookies();
-  const token = cookieStore.get("recruitiq_access")?.value;
+  const token = cookieStore.get("hirenova_access")?.value;
   const session = token ? verifyAccessToken(token) : null;
   if (!session) redirect("/login");
 

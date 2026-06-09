@@ -17,7 +17,7 @@ export function EmployeeShell({ user, children }: EmployeeShellProps) {
 
   // Sync with localStorage so main content area doesn't flash on refresh
   useEffect(() => {
-    const saved = localStorage.getItem("recruitiq_sidebar_collapsed");
+    const saved = localStorage.getItem("hirenova_sidebar_collapsed");
     if (saved === "true") setSidebarCollapsed(true);
   }, []);
 

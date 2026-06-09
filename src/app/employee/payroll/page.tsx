@@ -9,7 +9,7 @@ export const revalidate = 0;
 
 export default async function EmployeePayrollPage() {
   const cookieStore = await cookies();
-  const token = cookieStore.get("recruitiq_access")?.value;
+  const token = cookieStore.get("hirenova_access")?.value;
   const session = token ? verifyAccessToken(token) : null;
 
   if (!session) redirect("/login");

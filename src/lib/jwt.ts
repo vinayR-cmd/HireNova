@@ -38,8 +38,8 @@ export function verifyRefreshToken(token: string): JWTPayload | null {
   }
 }
 
-export const COOKIE_ACCESS = "recruitiq_access";
-export const COOKIE_REFRESH = "recruitiq_refresh";
+export const COOKIE_ACCESS = "hirenova_access";
+export const COOKIE_REFRESH = "hirenova_refresh";
 
 export const ACCESS_COOKIE_OPTIONS = {
   httpOnly: true,

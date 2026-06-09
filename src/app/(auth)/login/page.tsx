@@ -62,10 +62,10 @@ export default function LoginPage() {
         {/* Clean, sharp minimalist headers */}
         <div className="text-center">
           <div className="mx-auto mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-[oklch(0.62_0.21_291)] to-[oklch(0.68_0.19_330)] shadow-lg shadow-[oklch(0.62_0.21_291)]/30">
-            <Image src="/logo.png" alt="RecruitIQ" width={22} height={22} className="object-contain brightness-0 invert" />
+            <Image src="/logo.png" alt="HireNova" width={22} height={22} className="object-contain brightness-0 invert" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
-            Sign in to RecruitIQ
+            Sign in to HireNova
           </h2>
           <p className="mt-2 text-xs sm:text-sm text-gray-400">
             Access your workforce management panel account

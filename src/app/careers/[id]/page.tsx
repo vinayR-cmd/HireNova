@@ -93,9 +93,9 @@ export default function JobApplicationPage() {
         <header className="w-full max-w-5xl rounded-full border border-white/10 bg-[#0D0F15]/70 backdrop-blur-xl px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-[0_8px_30px_rgba(0,0,0,0.35)] pointer-events-auto">
           <Link href="/" className="flex items-center gap-3">
             <div className="relative h-7 w-7 rounded-xl bg-gradient-to-br from-[oklch(0.62_0.21_291)] to-[oklch(0.68_0.19_330)] flex items-center justify-center shadow-xs overflow-hidden">
-              <Image src="/logo.png" alt="RecruitIQ Logo" width={20} height={20} style={{ width: 20, height: "auto" }} className="object-contain" priority />
+              <Image src="/logo.png" alt="HireNova Logo" width={20} height={20} style={{ width: 20, height: "auto" }} className="object-contain" priority />
             </div>
-            <span className="text-sm font-bold tracking-tight text-white">RecruitIQ Careers</span>
+            <span className="text-sm font-bold tracking-tight text-white">HireNova Careers</span>
           </Link>
           <Link href="/login" className="text-xs font-semibold text-gray-300 hover:text-white px-3 py-1.5 transition-all">
             Employee / HR Login

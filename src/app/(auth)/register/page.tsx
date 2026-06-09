@@ -118,7 +118,7 @@ export default function RegisterPage() {
 
                 <div className="text-center">
                     <h2 className="text-2xl sm:text-3xl font-medium tracking-tight text-white">
-                        Create your RecruitIQ account
+                        Create your HireNova account
                     </h2>
                     <p className="mt-2 text-xs sm:text-sm text-gray-400">
                         One form for everyone — your access level is decided automatically based on your email

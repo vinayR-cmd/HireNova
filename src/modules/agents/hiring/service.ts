@@ -160,7 +160,7 @@ export class HiringAgentService {
     // 1. EXTRACT
     const [resumeText, upload] = await Promise.all([
       extractTextFromPdf(params.fileBuffer),
-      uploadBuffer(params.fileBuffer, { folder: "recruitiq/resumes", resourceType: "raw", filename: params.filename }),
+      uploadBuffer(params.fileBuffer, { folder: "hirenova/resumes", resourceType: "raw", filename: params.filename }),
     ]);
 
     if (!resumeText || resumeText.length < 30) {

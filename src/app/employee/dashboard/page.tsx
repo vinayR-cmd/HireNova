@@ -11,7 +11,7 @@ export const revalidate = 0; // Force full dynamic execution for shift calculati
 export default async function EmployeeDashboardPage() {
   // 1. Next.js Pattern: Await the async cookie store container
   const cookieStore = await cookies();
-  const token = cookieStore.get("recruitiq_access")?.value;
+  const token = cookieStore.get("hirenova_access")?.value;
   const session = token ? verifyAccessToken(token) : null;
 
   if (!session) {

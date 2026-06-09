@@ -3,9 +3,9 @@ import Image from "next/image";
 import { Cpu, ShieldCheck, Users, ArrowRight, Activity, Layers, Landmark, Sparkles, Building2, Terminal } from "lucide-react";
 
 export const metadata = {
-  title: "RecruitIQ Enterprise — Autonomous HRMS & Core Payroll Infrastructure",
+  title: "HireNova Enterprise — Autonomous HRMS & Core Payroll Infrastructure",
   description: "Accelerate your corporate operations with an automated HR platform. Specialized in compliant single-page automated Indian payroll cycles, shift logistics tracking, and employee self-service hubs.",
-  keywords: ["HRMS India", "Automated Payroll Software", "Compliance Infrastructure", "A4 Payslip Builder", "Employee Attendance Self-Service", "RecruitIQ Engine"],
+  keywords: ["HRMS India", "Automated Payroll Software", "Compliance Infrastructure", "A4 Payslip Builder", "Employee Attendance Self-Service", "HireNova Engine"],
 };
 
 export default function Home() {
@@ -25,7 +25,7 @@ export default function Home() {
             <div className="relative h-7 w-7 rounded-xl bg-gradient-to-br from-[oklch(0.62_0.21_291)] to-[oklch(0.68_0.19_330)] flex items-center justify-center shadow-xs overflow-hidden">
               <Image
                 src="/logo.png"
-                alt="RecruitIQ Logo"
+                alt="HireNova Logo"
                 width={20}
                 height={20}
                 style={{ width: 20, height: "auto" }}
@@ -33,7 +33,7 @@ export default function Home() {
                 priority
               />
             </div>
-            <span className="text-sm font-bold tracking-tight text-white sm:block hidden">RecruitIQ Enterprise</span>
+            <span className="text-sm font-bold tracking-tight text-white sm:block hidden">HireNova Enterprise</span>
           </div>
 
           {/* Core Feature Anchor Links */}
@@ -176,7 +176,7 @@ export default function Home() {
 
       {/* ================= PLATFORM CENTRAL CONSOLE FOOTER ================= */}
       <footer className="border-t border-white/10 py-6 text-center text-[11px] text-gray-500 font-normal relative z-10 bg-[#0D0F15]/40 backdrop-blur-xs">
-        © 2026 RecruitIQ Systems India Private Limited. Secure Infrastructure Core Node • Cryptographic TLS 1.3 Encryption Rules Enforced.
+        © 2026 HireNova Systems India Private Limited. Secure Infrastructure Core Node • Cryptographic TLS 1.3 Encryption Rules Enforced.
       </footer>
 
     </div>

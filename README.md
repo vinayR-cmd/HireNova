@@ -1,8 +1,8 @@
-# RecruitIQ — Agentic HRMS, Payroll & AI Hiring Platform
+# HireNova — Agentic HRMS, Payroll & AI Hiring Platform
 
-RecruitIQ is a production-grade, full-stack **Human Resource Management System** that has grown into a complete **agentic talent platform**. It is built entirely on **Next.js 16** — there is no separate backend server; every API route, business rule, and database query lives inside the same Next.js application and ships as a single deployable unit.
+HireNova is a production-grade, full-stack **Human Resource Management System** that has grown into a complete **agentic talent platform**. It is built entirely on **Next.js 16** — there is no separate backend server; every API route, business rule, and database query lives inside the same Next.js application and ships as a single deployable unit.
 
-At its core RecruitIQ still does what an HRMS should: onboarding, attendance, leave, payroll, holidays, notifications, and self-service profiles for both **Admins** and **Employees**. Layered on top of that core is **RecruitIQ AI** — five purpose-built OpenAI-powered agents that automate the entire hire → interview → onboard → support → analyze lifecycle:
+At its core HireNova still does what an HRMS should: onboarding, attendance, leave, payroll, holidays, notifications, and self-service profiles for both **Admins** and **Employees**. Layered on top of that core is **HireNova AI** — five purpose-built OpenAI-powered agents that automate the entire hire → interview → onboard → support → analyze lifecycle:
 
 - A **Hiring Agent** that reads resumes with a genuine retrieval-augmented-generation (RAG) pipeline and ranks candidates against a job description with cited evidence
 - An **Interview Agent** that conducts a live, *adaptive* AI interview — generating each question in real time based on how the candidate is actually performing — and produces a structured hiring-panel report
@@ -16,7 +16,7 @@ A public-facing **careers job board** and **token-based candidate interview link
 
 ## Table of Contents
 
-1. [What RecruitIQ Does](#what-recruitiq-does)
+1. [What HireNova Does](#what-hirenova-does)
 2. [Feature Set](#feature-set)
 3. [The AI Agent Platform — How Each Agent Actually Works](#the-ai-agent-platform--how-each-agent-actually-works)
 4. [Technology Stack](#technology-stack)
@@ -32,7 +32,7 @@ A public-facing **careers job board** and **token-based candidate interview link
 
 ---
 
-## What RecruitIQ Does
+## What HireNova Does
 
 **For HR Administrators**
 - Run the entire hiring funnel from a single **Hiring Agent** dashboard: post jobs, watch resumes get parsed/scored automatically, review AI-cited evidence for every required skill, shortlist, schedule AI interviews, read AI-written interview reports, and hire — all without leaving the portal
@@ -69,7 +69,7 @@ A public-facing **careers job board** and **token-based candidate interview link
 
 ## Feature Set
 
-### AI Agents (RecruitIQ AI)
+### AI Agents (HireNova AI)
 
 | Agent | Where it lives | Capability |
 |---|---|---|
@@ -90,7 +90,7 @@ A public-facing **careers job board** and **token-based candidate interview link
 
 | Area | Capability |
 |---|---|
-| **Authentication** | JWT (HS256) access + refresh tokens, HTTP-only cookies (`recruitiq_access` / `recruitiq_refresh`), role-based routing, silent session refresh via `apiFetch()` |
+| **Authentication** | JWT (HS256) access + refresh tokens, HTTP-only cookies (`hirenova_access` / `hirenova_refresh`), role-based routing, silent session refresh via `apiFetch()` |
 | **Onboarding / Approval** | Self-registration → `PENDING` → Admin review (`ApprovalService`) → activation with employee ID, department, designation & salary assignment — *or* pre-activated arrival via the Hiring Agent's hire-to-onboard bridge |
 | **Attendance** | Self check-in/out, automatic overtime/undertime calculation, admin override for any date, nightly auto-absent cron at 22:00 IST |
 | **Holidays** | Admin declares holidays; all active employees are auto-marked `HOLIDAY`; fully paid (zero deduction) |
@@ -126,7 +126,7 @@ The default chat model is `gpt-4o-mini` (overridable via `OPENAI_MODEL`); both t
 
 This is a genuine **retrieval-augmented generation pipeline**, not a single free-form "read this resume and tell me what you think" prompt. `HiringAgentService.submitCandidate()` runs five distinct stages:
 
-1. **EXTRACT** — `extractTextFromPdf()` (`src/lib/pdf.ts`, built on `pdf-parse`) pulls raw text out of the uploaded PDF; the file itself is simultaneously uploaded to Cloudinary (`uploadBuffer()`, folder `recruitiq/resumes`, raw resource type) so the original document remains viewable
+1. **EXTRACT** — `extractTextFromPdf()` (`src/lib/pdf.ts`, built on `pdf-parse`) pulls raw text out of the uploaded PDF; the file itself is simultaneously uploaded to Cloudinary (`uploadBuffer()`, folder `hirenova/resumes`, raw resource type) so the original document remains viewable
 2. **SEGMENT** — the raw resume text is sent to `chatJSON` with `RESUME_SEGMENTATION_SYSTEM_PROMPT`, which chunks it into labeled sections (e.g. "Work Experience", "Technical Skills", "Projects") **and** extracts structured profile data (`skills[]`, `education[]`, `experience[]`, `totalExperienceYears`) in the same pass
 3. **EMBED** — every resume section *and* every required skill from the job posting is embedded into the same vector space via `embedTexts()`
 4. **RETRIEVE** — for each required skill, `retrieveTopMatches()` runs a cosine-similarity search over the section embeddings (top-2 matches, minimum similarity 0.25) and assembles a per-skill **evidence dossier** of concrete, citable resume excerpts with their similarity scores
@@ -138,7 +138,7 @@ Other `HiringAgentService` methods: `createJobPosting`, `listJobPostings` (enric
 
 ### 2. Interview Agent — Live Adaptive Interviewing (`src/modules/agents/interview/`)
 
-Most "AI interview" tools hand a candidate a fixed, pre-generated list of questions. RecruitIQ's Interview Agent does something fundamentally different: **it crafts ONE question at a time, live, in reaction to how the conversation is actually going.**
+Most "AI interview" tools hand a candidate a fixed, pre-generated list of questions. HireNova's Interview Agent does something fundamentally different: **it crafts ONE question at a time, live, in reaction to how the conversation is actually going.**
 
 - `TOTAL_QUESTIONS = 6` — kept modest so the demo flow stays tight while still ranging across categories
 - `startInterview()` generates *only the opening question* up front (via `generateAdaptiveQuestion()` with an empty transcript), creates the `Interview` document with a unique public `token` (`randomBytes(24).toString("base64url")`), and flips the candidate's status to `INTERVIEWING`
@@ -168,7 +168,7 @@ Generic questions ("Tell me about yourself", "What's your biggest weakness") are
 
 ### 4. Assistant Agent — Unified Onboarding + HR Support (`src/modules/agents/assistant/`)
 
-Rather than building two separate chatbots that would duplicate all the tool-calling plumbing, RecruitIQ implements **one** `AssistantAgentService` whose persona adapts to context:
+Rather than building two separate chatbots that would duplicate all the tool-calling plumbing, HireNova implements **one** `AssistantAgentService` whose persona adapts to context:
 
 - `resolveMode(joiningDate)` — anyone within `ONBOARDING_WINDOW_DAYS = 14` of their join date gets the warmer **onboarding** system prompt; everyone else gets the steady-state **support** prompt; authenticated admins (who authenticate via `ADMIN_EMAILS` and have no `Employee` record) get a **policy-only admin** persona
 - The chat loop runs through `chatWithTools()`, giving the model a registry of real internal tools (`src/modules/agents/assistant/tools.ts`):
@@ -223,7 +223,7 @@ Rather than building two separate chatbots that would duplicate all the tool-cal
 
 ## Architecture
 
-RecruitIQ enforces a strict **layered architecture** to ensure clean separation of concerns and prevent business logic from leaking into the wrong layer.
+HireNova enforces a strict **layered architecture** to ensure clean separation of concerns and prevent business logic from leaking into the wrong layer.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -349,7 +349,7 @@ src/
 │   ├── dashboard/service.ts                # KPI aggregation for both roles
 │   ├── notification/service.ts             # Create, list, mark-read
 │   ├── settings/service.ts                 # Company settings read/write
-│   └── agents/                             # ───── RecruitIQ AI ─────
+│   └── agents/                             # ───── HireNova AI ─────
 │       ├── shared/
 │       │   ├── ai-client.ts                #   chatJSON<T>, chatText, chatWithTools — OpenAI wrappers
 │       │   └── embeddings.ts               #   embedTexts, cosineSimilarity, retrieveTopMatches (RAG retrieval)
@@ -560,7 +560,7 @@ A scheduled job at **22:00 IST (16:30 UTC)** runs daily via Vercel Cron:
 
 ## API Reference
 
-All endpoints return `Response.json()` (Next.js 16 pattern). Authentication is verified by reading and decoding the **`recruitiq_access`** HTTP-only cookie on every protected request via `verifyAccessToken()`; the **`recruitiq_refresh`** cookie powers silent session renewal through `apiFetch()`.
+All endpoints return `Response.json()` (Next.js 16 pattern). Authentication is verified by reading and decoding the **`hirenova_access`** HTTP-only cookie on every protected request via `verifyAccessToken()`; the **`hirenova_refresh`** cookie powers silent session renewal through `apiFetch()`.
 
 ### Core HRMS
 
@@ -596,7 +596,7 @@ All endpoints return `Response.json()` (Next.js 16 pattern). Authentication is v
 | PUT | `/api/settings` | Admin | Update company configuration |
 | GET / POST | `/api/cron/auto-absent` | Cron | Mark absent employees (`Authorization: Bearer <CRON_SECRET>`) |
 
-### RecruitIQ AI — Hiring & Interview Agents
+### HireNova AI — Hiring & Interview Agents
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
@@ -623,7 +623,7 @@ All endpoints return `Response.json()` (Next.js 16 pattern). Authentication is v
 | GET | `/api/careers/[id]` | **Public** | Get a single open job posting's public detail |
 | POST | `/api/careers/apply` | **Public** | Candidate self-application intake (multipart resume upload) — same RAG pipeline as admin intake |
 
-### RecruitIQ AI — Assistant & Analytics Agents
+### HireNova AI — Assistant & Analytics Agents
 
 | Method | Endpoint | Auth | Description |
 |---|---|---|---|
@@ -658,7 +658,7 @@ SMTP_HOST=smtp.mailtrap.io
 SMTP_PORT=587
 SMTP_USER=your_smtp_username
 SMTP_PASS=your_smtp_password
-EMAIL_FROM=RecruitIQ <noreply@yourcompany.com>
+EMAIL_FROM=HireNova <noreply@yourcompany.com>
 
 # ── OpenAI — powers all five AI agents (Hiring, Interview, Onboarding, ───────
 # ── HR Support, Workforce Analytics). Get a key at platform.openai.com ───────
@@ -696,8 +696,8 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 ### 1. Clone and Install
 
 ```bash
-git clone https://github.com/your-org/recruitiq.git
-cd recruitiq
+git clone https://github.com/your-org/hirenova.git
+cd hirenova
 npm install
 ```
 
@@ -740,7 +740,7 @@ npm run start
 
 ## Deployment
 
-RecruitIQ is designed for **zero-configuration deployment on Vercel**.
+HireNova is designed for **zero-configuration deployment on Vercel**.
 
 ### Vercel
 
@@ -775,7 +775,7 @@ Any platform that supports Node.js 20+ and environment variables will work. Set 
 ## Security Hardening Notes
 
 ### Authentication
-- JWT access (15-minute) and refresh (7-day) tokens are stored exclusively in **HTTP-only, SameSite=Lax cookies** (`recruitiq_access` / `recruitiq_refresh`, `secure: true` in production) — never accessible to JavaScript on the client, eliminating XSS-based token theft.
+- JWT access (15-minute) and refresh (7-day) tokens are stored exclusively in **HTTP-only, SameSite=Lax cookies** (`hirenova_access` / `hirenova_refresh`, `secure: true` in production) — never accessible to JavaScript on the client, eliminating XSS-based token theft.
 - Token verification happens **server-side** on every protected route handler and layout guard via `verifyAccessToken()` / `verifyRefreshToken()`.
 - The `ADMIN_EMAILS` list is a server-side environment variable — it never reaches the browser.
 

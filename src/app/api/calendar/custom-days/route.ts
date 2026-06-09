@@ -6,7 +6,7 @@ import { calendarService } from "@/modules/calendar/service";
 
 async function getAdminSession() {
   const cookieStore = await cookies();
-  const token = cookieStore.get("recruitiq_access")?.value;
+  const token = cookieStore.get("hirenova_access")?.value;
   if (!token) return null;
   const session = verifyAccessToken(token);
   if (!session || session.role !== "ADMIN") return null;

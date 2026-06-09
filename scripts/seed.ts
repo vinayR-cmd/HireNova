@@ -1,5 +1,5 @@
 /**
- * RecruitIQ seed script — Indian-context test data.
+ * HireNova seed script — Indian-context test data.
  *
  * Usage:  pnpm seed         (uses MONGODB_URI from .env.local)
  *
@@ -59,31 +59,31 @@ interface SeedEmployee {
 
 const EMPLOYEES: SeedEmployee[] = [
   // Engineering (5)
-  { fullName: "Arjun Sharma",     email: "arjun.sharma@recruitiq.in",    mobile: "9876543210", department: "Engineering",        designation: "Senior Software Engineer", basicSalary: 60000, hraAmount: 24000, specialAllowance: 12000, performancePay: 8000,  city: "Bengaluru",  state: "Karnataka",      pan: "ABCPS1234A", uan: "100123456789", bank: "HDFC Bank",      ifsc: "HDFC0001234" },
-  { fullName: "Priya Iyer",       email: "priya.iyer@recruitiq.in",      mobile: "9876543211", department: "Engineering",        designation: "Software Engineer",        basicSalary: 45000, hraAmount: 18000, specialAllowance: 9000,  performancePay: 5000,  city: "Chennai",    state: "Tamil Nadu",     pan: "ABCPI1235B", uan: "100123456790", bank: "ICICI Bank",     ifsc: "ICIC0005678" },
-  { fullName: "Rohan Mehta",      email: "rohan.mehta@recruitiq.in",     mobile: "9876543212", department: "Engineering",        designation: "Lead Engineer",            basicSalary: 80000, hraAmount: 32000, specialAllowance: 16000, performancePay: 12000, city: "Pune",       state: "Maharashtra",    pan: "ABCPM1236C", uan: "100123456791", bank: "Axis Bank",      ifsc: "UTIB0009876" },
-  { fullName: "Ananya Reddy",     email: "ananya.reddy@recruitiq.in",    mobile: "9876543213", department: "Engineering",        designation: "DevOps Engineer",          basicSalary: 55000, hraAmount: 22000, specialAllowance: 11000, performancePay: 6000,  city: "Hyderabad",  state: "Telangana",      pan: "ABCPR1237D", uan: "100123456792", bank: "SBI",            ifsc: "SBIN0001122" },
-  { fullName: "Karthik Nair",     email: "karthik.nair@recruitiq.in",    mobile: "9876543214", department: "Engineering",        designation: "QA Engineer",              basicSalary: 40000, hraAmount: 16000, specialAllowance: 8000,  performancePay: 4000,  city: "Kochi",      state: "Kerala",         pan: "ABCPN1238E", uan: "100123456793", bank: "Federal Bank",   ifsc: "FDRL0003344" },
+  { fullName: "Arjun Sharma",     email: "arjun.sharma@hirenova.in",    mobile: "9876543210", department: "Engineering",        designation: "Senior Software Engineer", basicSalary: 60000, hraAmount: 24000, specialAllowance: 12000, performancePay: 8000,  city: "Bengaluru",  state: "Karnataka",      pan: "ABCPS1234A", uan: "100123456789", bank: "HDFC Bank",      ifsc: "HDFC0001234" },
+  { fullName: "Priya Iyer",       email: "priya.iyer@hirenova.in",      mobile: "9876543211", department: "Engineering",        designation: "Software Engineer",        basicSalary: 45000, hraAmount: 18000, specialAllowance: 9000,  performancePay: 5000,  city: "Chennai",    state: "Tamil Nadu",     pan: "ABCPI1235B", uan: "100123456790", bank: "ICICI Bank",     ifsc: "ICIC0005678" },
+  { fullName: "Rohan Mehta",      email: "rohan.mehta@hirenova.in",     mobile: "9876543212", department: "Engineering",        designation: "Lead Engineer",            basicSalary: 80000, hraAmount: 32000, specialAllowance: 16000, performancePay: 12000, city: "Pune",       state: "Maharashtra",    pan: "ABCPM1236C", uan: "100123456791", bank: "Axis Bank",      ifsc: "UTIB0009876" },
+  { fullName: "Ananya Reddy",     email: "ananya.reddy@hirenova.in",    mobile: "9876543213", department: "Engineering",        designation: "DevOps Engineer",          basicSalary: 55000, hraAmount: 22000, specialAllowance: 11000, performancePay: 6000,  city: "Hyderabad",  state: "Telangana",      pan: "ABCPR1237D", uan: "100123456792", bank: "SBI",            ifsc: "SBIN0001122" },
+  { fullName: "Karthik Nair",     email: "karthik.nair@hirenova.in",    mobile: "9876543214", department: "Engineering",        designation: "QA Engineer",              basicSalary: 40000, hraAmount: 16000, specialAllowance: 8000,  performancePay: 4000,  city: "Kochi",      state: "Kerala",         pan: "ABCPN1238E", uan: "100123456793", bank: "Federal Bank",   ifsc: "FDRL0003344" },
 
   // Human Resources (2)
-  { fullName: "Neha Kapoor",      email: "neha.kapoor@recruitiq.in",     mobile: "9876543215", department: "Human Resources",    designation: "HR Manager",               basicSalary: 50000, hraAmount: 20000, specialAllowance: 10000, performancePay: 5000,  city: "New Delhi",  state: "Delhi",          pan: "ABCPK1239F", uan: "100123456794", bank: "HDFC Bank",      ifsc: "HDFC0005566" },
-  { fullName: "Vikram Singh",     email: "vikram.singh@recruitiq.in",    mobile: "9876543216", department: "Human Resources",    designation: "HR Executive",             basicSalary: 32000, hraAmount: 12800, specialAllowance: 6400,  performancePay: 3000,  city: "Chandigarh", state: "Punjab",         pan: "ABCPS1240G", uan: "100123456795", bank: "PNB",            ifsc: "PUNB0007788" },
+  { fullName: "Neha Kapoor",      email: "neha.kapoor@hirenova.in",     mobile: "9876543215", department: "Human Resources",    designation: "HR Manager",               basicSalary: 50000, hraAmount: 20000, specialAllowance: 10000, performancePay: 5000,  city: "New Delhi",  state: "Delhi",          pan: "ABCPK1239F", uan: "100123456794", bank: "HDFC Bank",      ifsc: "HDFC0005566" },
+  { fullName: "Vikram Singh",     email: "vikram.singh@hirenova.in",    mobile: "9876543216", department: "Human Resources",    designation: "HR Executive",             basicSalary: 32000, hraAmount: 12800, specialAllowance: 6400,  performancePay: 3000,  city: "Chandigarh", state: "Punjab",         pan: "ABCPS1240G", uan: "100123456795", bank: "PNB",            ifsc: "PUNB0007788" },
 
   // Finance (2)
-  { fullName: "Divya Subramanian", email: "divya.s@recruitiq.in",        mobile: "9876543217", department: "Finance",            designation: "Finance Manager",          basicSalary: 65000, hraAmount: 26000, specialAllowance: 13000, performancePay: 7000,  city: "Mumbai",     state: "Maharashtra",    pan: "ABCPS1241H", uan: "100123456796", bank: "ICICI Bank",     ifsc: "ICIC0009900" },
-  { fullName: "Aditya Joshi",     email: "aditya.joshi@recruitiq.in",    mobile: "9876543218", department: "Finance",            designation: "Accountant",               basicSalary: 35000, hraAmount: 14000, specialAllowance: 7000,  performancePay: 3500,  city: "Pune",       state: "Maharashtra",    pan: "ABCPJ1242I", uan: "100123456797", bank: "Kotak Bank",     ifsc: "KKBK0001122" },
+  { fullName: "Divya Subramanian", email: "divya.s@hirenova.in",        mobile: "9876543217", department: "Finance",            designation: "Finance Manager",          basicSalary: 65000, hraAmount: 26000, specialAllowance: 13000, performancePay: 7000,  city: "Mumbai",     state: "Maharashtra",    pan: "ABCPS1241H", uan: "100123456796", bank: "ICICI Bank",     ifsc: "ICIC0009900" },
+  { fullName: "Aditya Joshi",     email: "aditya.joshi@hirenova.in",    mobile: "9876543218", department: "Finance",            designation: "Accountant",               basicSalary: 35000, hraAmount: 14000, specialAllowance: 7000,  performancePay: 3500,  city: "Pune",       state: "Maharashtra",    pan: "ABCPJ1242I", uan: "100123456797", bank: "Kotak Bank",     ifsc: "KKBK0001122" },
 
   // Marketing (2)
-  { fullName: "Sneha Patel",      email: "sneha.patel@recruitiq.in",     mobile: "9876543219", department: "Marketing",          designation: "Marketing Manager",        basicSalary: 55000, hraAmount: 22000, specialAllowance: 11000, performancePay: 6000,  city: "Ahmedabad",  state: "Gujarat",        pan: "ABCPP1243J", uan: "100123456798", bank: "HDFC Bank",      ifsc: "HDFC0003344" },
-  { fullName: "Rajesh Verma",     email: "rajesh.verma@recruitiq.in",    mobile: "9876543220", department: "Marketing",          designation: "Content Strategist",       basicSalary: 38000, hraAmount: 15200, specialAllowance: 7600,  performancePay: 4000,  city: "Jaipur",     state: "Rajasthan",      pan: "ABCPV1244K", uan: "100123456799", bank: "BOB",            ifsc: "BARB0005566" },
+  { fullName: "Sneha Patel",      email: "sneha.patel@hirenova.in",     mobile: "9876543219", department: "Marketing",          designation: "Marketing Manager",        basicSalary: 55000, hraAmount: 22000, specialAllowance: 11000, performancePay: 6000,  city: "Ahmedabad",  state: "Gujarat",        pan: "ABCPP1243J", uan: "100123456798", bank: "HDFC Bank",      ifsc: "HDFC0003344" },
+  { fullName: "Rajesh Verma",     email: "rajesh.verma@hirenova.in",    mobile: "9876543220", department: "Marketing",          designation: "Content Strategist",       basicSalary: 38000, hraAmount: 15200, specialAllowance: 7600,  performancePay: 4000,  city: "Jaipur",     state: "Rajasthan",      pan: "ABCPV1244K", uan: "100123456799", bank: "BOB",            ifsc: "BARB0005566" },
 
   // Sales (2)
-  { fullName: "Kavya Krishnan",   email: "kavya.k@recruitiq.in",         mobile: "9876543221", department: "Sales",              designation: "Sales Manager",            basicSalary: 60000, hraAmount: 24000, specialAllowance: 12000, performancePay: 10000, city: "Bengaluru",  state: "Karnataka",      pan: "ABCPK1245L", uan: "100123456800", bank: "ICICI Bank",     ifsc: "ICIC0001122" },
-  { fullName: "Sandeep Kumar",    email: "sandeep.kumar@recruitiq.in",   mobile: "9876543222", department: "Sales",              designation: "Sales Executive",          basicSalary: 30000, hraAmount: 12000, specialAllowance: 6000,  performancePay: 8000,  city: "Lucknow",    state: "Uttar Pradesh",  pan: "ABCPK1246M", uan: "100123456801", bank: "SBI",            ifsc: "SBIN0007788" },
+  { fullName: "Kavya Krishnan",   email: "kavya.k@hirenova.in",         mobile: "9876543221", department: "Sales",              designation: "Sales Manager",            basicSalary: 60000, hraAmount: 24000, specialAllowance: 12000, performancePay: 10000, city: "Bengaluru",  state: "Karnataka",      pan: "ABCPK1245L", uan: "100123456800", bank: "ICICI Bank",     ifsc: "ICIC0001122" },
+  { fullName: "Sandeep Kumar",    email: "sandeep.kumar@hirenova.in",   mobile: "9876543222", department: "Sales",              designation: "Sales Executive",          basicSalary: 30000, hraAmount: 12000, specialAllowance: 6000,  performancePay: 8000,  city: "Lucknow",    state: "Uttar Pradesh",  pan: "ABCPK1246M", uan: "100123456801", bank: "SBI",            ifsc: "SBIN0007788" },
 
   // Product / Design (2)
-  { fullName: "Meera Pillai",     email: "meera.pillai@recruitiq.in",    mobile: "9876543223", department: "Product",            designation: "Product Manager",          basicSalary: 75000, hraAmount: 30000, specialAllowance: 15000, performancePay: 10000, city: "Bengaluru",  state: "Karnataka",      pan: "ABCPP1247N", uan: "100123456802", bank: "Axis Bank",      ifsc: "UTIB0001122" },
-  { fullName: "Aniket Desai",     email: "aniket.desai@recruitiq.in",    mobile: "9876543224", department: "Design",             designation: "Product Designer",         basicSalary: 50000, hraAmount: 20000, specialAllowance: 10000, performancePay: 5000,  city: "Mumbai",     state: "Maharashtra",    pan: "ABCPD1248O", uan: "100123456803", bank: "HDFC Bank",      ifsc: "HDFC0007788" },
+  { fullName: "Meera Pillai",     email: "meera.pillai@hirenova.in",    mobile: "9876543223", department: "Product",            designation: "Product Manager",          basicSalary: 75000, hraAmount: 30000, specialAllowance: 15000, performancePay: 10000, city: "Bengaluru",  state: "Karnataka",      pan: "ABCPP1247N", uan: "100123456802", bank: "Axis Bank",      ifsc: "UTIB0001122" },
+  { fullName: "Aniket Desai",     email: "aniket.desai@hirenova.in",    mobile: "9876543224", department: "Design",             designation: "Product Designer",         basicSalary: 50000, hraAmount: 20000, specialAllowance: 10000, performancePay: 5000,  city: "Mumbai",     state: "Maharashtra",    pan: "ABCPD1248O", uan: "100123456803", bank: "HDFC Bank",      ifsc: "HDFC0007788" },
 ];
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -132,8 +132,8 @@ async function main() {
   await Company.findOneAndUpdate(
     {},
     {
-      name: "RecruitIQ Technologies Pvt Ltd",
-      email: "ops@recruitiq.in",
+      name: "HireNova Technologies Pvt Ltd",
+      email: "ops@hirenova.in",
       contactNumber: "+91 80 4567 8900",
       address: "Prestige Tech Park, Outer Ring Rd, Bengaluru, Karnataka 560103",
       gstNumber: "29AABCH1234C1Z5",

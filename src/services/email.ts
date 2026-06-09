@@ -4,7 +4,7 @@ const SMTP_HOST = process.env.SMTP_HOST;
 const SMTP_PORT = parseInt(process.env.SMTP_PORT || "587", 10);
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
-const EMAIL_FROM = process.env.EMAIL_FROM || "RecruitIQ Portal <noreply@recruitiq.com>";
+const EMAIL_FROM = process.env.EMAIL_FROM || "HireNova Portal <noreply@hirenova.com>";
 
 // Create a reusable transporter instance configuration
 const transporter = nodemailer.createTransport({
@@ -89,7 +89,7 @@ export class EmailService {
         ${bankReminder}
         <p style="color: #334155; line-height: 1.6;">You can now log in to your dashboard to clock attendance, view payslips, and manage your profile.</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
-        <p style="color: #64748b; font-size: 12px;">RecruitIQ Operations Team.</p>
+        <p style="color: #64748b; font-size: 12px;">HireNova Operations Team.</p>
       </div>
     `;
     return this.sendMail(to, subject, html);
@@ -100,7 +100,7 @@ export class EmailService {
    * carries their new corporate ID and one-time login credentials.
    */
   async sendOnboardingWelcomeEmail(to: string, fullName: string, employeeId: string, jobTitle: string, tempPassword: string) {
-    const subject = `Welcome to the Team, ${fullName.split(" ")[0]}! Your RecruitIQ Account is Ready`;
+    const subject = `Welcome to the Team, ${fullName.split(" ")[0]}! Your HireNova Account is Ready`;
     const html = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
         <h2 style="color: #6d28d9; margin-bottom: 16px;">You're Hired — Welcome Aboard!</h2>
@@ -114,7 +114,7 @@ export class EmailService {
         </div>
         <p style="color: #334155; line-height: 1.6;">Log in with your email and this temporary password, then visit your profile to set a new one and complete your onboarding checklist. Your AI Onboarding Assistant will be ready to answer any questions about policies, attendance, payroll, and more.</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
-        <p style="color: #64748b; font-size: 12px;">RecruitIQ Operations Team.</p>
+        <p style="color: #64748b; font-size: 12px;">HireNova Operations Team.</p>
       </div>
     `;
     return this.sendMail(to, subject, html);
@@ -136,7 +136,7 @@ export class EmailService {
         </div>
         <p style="color: #334155; line-height: 1.6;">Please contact our dedicated human resources operational team directly should you wish to review specific compliance profiles or reapply using corrected information records.</p>
         <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
-        <p style="color: #64748b; font-size: 12px;">RecruitIQ Corporate Administration Division.</p>
+        <p style="color: #64748b; font-size: 12px;">HireNova Corporate Administration Division.</p>
       </div>
     `;
     return this.sendMail(to, subject, html);

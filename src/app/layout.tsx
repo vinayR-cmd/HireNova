@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "RecruitIQ — Enterprise HRMS & Payroll Portal",
+  title: "HireNova — Enterprise HRMS & Payroll Portal",
   description: "Next-generation full-stack corporate operations engine.",
   icons: {
     icon: "/logo.png",
